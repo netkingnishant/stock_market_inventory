@@ -1,0 +1,10 @@
+#few steps has been done in this two days i try my best complete the project but i didn't able to complete the project
+few steps are not completed like :
+- The User can click in front of any Stock Name and Submit a Form Query for
+the same.
+
+-Perform the Search Operation in Django that will pull the records
+using names of Listed Stock names
+
+#in this project i used iex cloud to fetch the stock details through api
+#you can see and update me for further updates i'm looking forward to it.

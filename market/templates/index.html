@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+<div>
+  <div class="container pt-4">
+    <div class="row  p-0 mt-4">
+      <div class="col-lg-4 mx-auto shadow p-0">
+        <div class="alert alert-info">
+          <h3>Stock Detail</h3>
+        </div>
+        <div class="p-4">
+          <form action="/add-todo/" method="POST">
+            {% csrf_token %}
+            {{form.as_p}}
+            <hr>
+            <input type="submit" value="ADD" class="btn btn-info">
+          </form>
+        </div>
+      </div>
+
+
+
+      <div class="col">
+        <div class="border">
+
+          {% if data|length == 0 %}
+
+          <div class="p-4">
+            <br>
+            <br>
+            <div class="alert alert-info text-center">
+              <p class="" style="font-size: 30px;"></p>
+            </div>
+            <br>
+            <br>
+          </div>
+
+          {%else%}
+          <div class="container-fluid">
+            <table class="table">
+              <thead>
+                <tr>
+                   <th scope="col">Symbol</th>
+                    <th scope="col">Company</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Previous Close</th>
+                    <th scope="col">Market Cap</th>
+                    <th scope="col">Return YTD</th>
+                    <th scope="col">PE Ratio</th>
+                    <th scope="col">52Wk High</th>
+                    <th scope="col">52Wk Low</th>
+
+       {% endif %}
+                </tr>
+              </thead>
+                 <tbody>
+{% for name,stocks in data.items %}
+            <tr>
+                <td>{{stocks.quote.symbol}}</td>
+                <td>{{stocks.quote.companyName}}</td>
+                <td>${{stocks.quote.latestPrice |floatformat:-2 }}</td>
+                <td>${{stocks.quote.previousClose |floatformat:-2 }}</td>
+                <td>${{stocks.quote.marketCap}}</td>
+                <td>{{stocks.quote.ytdChange | floatformat:-2 }}</td>
+                <td>{{stocks.quote.peRatio}}</td>
+                <td>${{stocks.quote.week52High}}</td>
+                <td>${{stocks.quote.week52Low}}</td>
+
+                {% endfor %}
+
+
+
+            </tr>
+
+        </tbody>
+
+            </table>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+{% endblock %}
