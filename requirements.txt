@@ -1,5 +1,5 @@
 #few steps has been done in this two days i try my best complete the project but i didn't able to complete the project
-few steps are not completed like :
+few steps are not completed like but i can fix this :
 - The User can click in front of any Stock Name and Submit a Form Query for
 the same.
 
